@@ -1,4 +1,5 @@
 from django.db import models
+# from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -41,3 +42,13 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+from django.contrib import auth
+class User(models.Model):
+    first_name = models.CharField(max_length=50, null=True, blank=True)
+    last_name = models.CharField(max_length=50, null=True, blank=True)
+    # age = models.DateTimeField(null=True)
+    account = models.OneToOneField(auth.models.User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.account.get('username')

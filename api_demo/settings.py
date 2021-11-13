@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'pintrest'
+    'rest_framework.authtoken',
+    'pintrest',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +131,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/kataya1/projects/django_projects/api_demo/api_demo/media_root'
+
+
+# USE THIS IF YOU DON'T WANT TO WRITE @authentication_classes([TokenAuthentication]) BEFORE EVERY FUNCTION
+# to override the default permission @permission_classes([])
+REST_FRAMEWORK = {
+'DEFAULT_AUTHENTICATION_CLASSES':['rest_framework.authentication.TokenAuthentication'],
+}

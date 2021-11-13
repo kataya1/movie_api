@@ -20,6 +20,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('pintrest/api/v1/', include('pintrest.api.v1.urls')),
+    path('accounts/api/v1/', include('accounts.api.v1.urls')),
 ]
 
 if settings.DEBUG:
